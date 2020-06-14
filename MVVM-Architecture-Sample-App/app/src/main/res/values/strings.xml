@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MVVM-Architecture-Sample-App</string>
+    <string name="email_id">Email id</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+
+    <string name="login_Success">You have successfully logged in</string>
+    <string name="enter_email">Please enter email.</string>
+    <string name="invalid_email">Please enter valid email.</string>
+    <string name="invalid_email_password">Please provide a valid email and password.</string>
+    <string name="enter_password">Please enter password.</string>
+    <string name="something_went_wrong">Something went wrong</string>
+</resources>

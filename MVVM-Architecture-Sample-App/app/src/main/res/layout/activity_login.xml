@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mvvmsampleapp.ui.login.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login_bg"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
+        tools:context=".ui.login.LoginActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_15"
+            android:layout_marginTop="150dp"
+            android:layout_marginRight="@dimen/margin_15"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_rounded_border"
+                android:hint="@string/email_id"
+                android:inputType="textEmailAddress"
+                android:padding="@dimen/padding_15" />
+
+            <EditText
+                android:id="@+id/edtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_20"
+                android:background="@drawable/edittext_rounded_border"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:padding="@dimen/padding_15" />
+
+
+            <TextView
+                android:id="@+id/txtLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_50"
+                android:background="@drawable/textview_rounded_border"
+                android:gravity="center"
+                android:onClick="@{() -> viewModel.onLoginClick()}"
+                android:padding="@dimen/margin_15"
+                android:text="@string/login"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtSnackBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_gray"
+            android:padding="@dimen/margin_15"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

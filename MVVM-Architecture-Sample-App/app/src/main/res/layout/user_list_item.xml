@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mvvmsampleapp.ui.user.UserListItemModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_10">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:cardCornerRadius="@dimen/margin_10"
+            app:cardElevation="@dimen/margin_10"
+            android:onClick="@{() -> viewModel.onItemClick()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_10"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <ImageView
+                    android:id="@+id/imgAvtar"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@{viewModel.imageUrl}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtId"
+                    style="@style/TextStyle.Heading"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_5"
+                    android:text="@{`Id: ` +viewModel.userId.toString()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imgAvtar"
+                    app:layout_constraintTop_toTopOf="@+id/imgAvtar" />
+
+                <TextView
+                    android:id="@+id/txtFirstName"
+                    style="@style/TextStyle.Heading"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtId"
+                    android:padding="@dimen/padding_5"
+                    android:text="@{`Name: ` +viewModel.firstName +` `+viewModel.lastName}"
+                    app:layout_constraintBottom_toBottomOf="@+id/imgAvtar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imgAvtar"
+                    app:layout_constraintTop_toBottomOf="@+id/txtId" />
+
+                <TextView
+                    android:id="@+id/txtEmail"
+                    style="@style/TextStyle.Heading"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtFirstName"
+                    android:padding="@dimen/padding_5"
+                    android:text="@{`Email:`+viewModel.email}"
+                    android:singleLine="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/imgAvtar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imgAvtar"
+                    app:layout_constraintTop_toBottomOf="@+id/txtFirstName" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
