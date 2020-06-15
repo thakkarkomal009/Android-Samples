@@ -16,6 +16,8 @@ import javax.inject.Inject
 class UserDetailActivity : BaseActivity<ActivityUserDetailBinding, UserDetailViewModel>(),
     UserDetailNavigator {
 
+    //Testing
+
     @set:Inject
     lateinit var factory: ViewModelProviderFactory
     var mActivity: Activity? = null
