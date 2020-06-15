@@ -42,30 +42,30 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     //Dagger dependency
-    implementation 'com.google.dagger:dagger:2.28'
-    implementation 'com.google.dagger:dagger-android:2.28'
-    implementation 'com.google.dagger:dagger-android-support:2.28'
-    kapt 'com.google.dagger:dagger-compiler:2.28'
-    kapt 'com.google.dagger:dagger-android-processor:2.28'
+    implementation "com.google.dagger:dagger:$dagger_version"
+    implementation "com.google.dagger:dagger-android:$dagger_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
 
     //Lifecycle
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    kapt 'androidx.lifecycle:lifecycle-compiler:2.2.0'
+    implementation "androidx.lifecycle:lifecycle-extensions:$life_cycle"
+    kapt "androidx.lifecycle:lifecycle-compiler:$life_cycle"
 
     //Reactive
-    implementation 'io.reactivex.rxjava3:rxjava:3.0.4'
-    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation "io.reactivex.rxjava3:rxjava:$rx_java"
+    implementation "io.reactivex.rxjava3:rxandroid:$rx_android"
 
     //Retrofit and okhttps
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.7.2'
-    implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'com.squareup.okhttp3:okhttp:4.7.2'
-    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+    implementation "com.squareup.okhttp3:logging-interceptor:$ok_http_logging_interceptor"
+    implementation "com.google.code.gson:gson:$gson"
+    implementation "com.squareup.okhttp3:okhttp:ok_http"
+    implementation "androidx.recyclerview:recyclerview:$recycler_view"
 
     //For Locader
-    implementation 'com.wang.avi:library:2.1.3'
-    implementation 'com.github.bumptech.glide:glide:4.11.0'
-    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation "com.wang.avi:library:$wang_avi_library"
+    implementation "com.github.bumptech.glide:glide:$glide"
+    implementation "androidx.cardview:cardview:$card_view"
 }

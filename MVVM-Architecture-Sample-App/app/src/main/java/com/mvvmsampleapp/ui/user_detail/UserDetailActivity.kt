@@ -12,11 +12,8 @@ import com.mvvmsampleapp.databinding.ActivityUserDetailBinding
 import com.mvvmsampleapp.ui.base.BaseActivity
 import javax.inject.Inject
 
-
 class UserDetailActivity : BaseActivity<ActivityUserDetailBinding, UserDetailViewModel>(),
     UserDetailNavigator {
-
-    //Testing
 
     @set:Inject
     lateinit var factory: ViewModelProviderFactory
