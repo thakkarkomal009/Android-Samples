@@ -1,6 +1,0 @@
-<resources>
-    <string name="mapbox_unit_kilometers">км</string>
-    <string name="mapbox_unit_meters">м</string>
-    <string name="mapbox_unit_miles">мили</string>
-    <string name="mapbox_unit_feet">фута</string>
-</resources>
