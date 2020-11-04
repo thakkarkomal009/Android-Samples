@@ -1,0 +1,2 @@
+include ':app', ':libnavigation-util', ':libnavigation-ui', 'libnavigation-core', ':libnavigation-base', ':libnavigator', ':libnavigation-router', ':libtrip-notification', ':libnavigation-metrics'
+rootProject.name = "MapboxNavigationSample"

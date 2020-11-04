@@ -1,0 +1,121 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'org.jetbrains.dokka'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.jaredsburrows.license'
+apply plugin: 'com.mapbox.android.sdk.versions'
+apply from: "${rootDir}/gradle/ktlint.gradle"
+//apply from: file("${rootDir}/gradle/artifact-settings.gradle")
+
+//version = project.ext.versionName
+//group = project.ext.mapboxArtifactGroupId
+
+dokka {
+    outputDirectory = "$buildDir/kdoc"
+    configuration {
+        moduleName = 'libnavigation-ui'
+        reportUndocumented = true
+
+        perPackageOption {
+            prefix = "com.mapbox.navigation.ui.internal"
+            suppress = true
+        }
+    }
+}
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'proguard-rules.pro', "${rootDir}/proguard/proguard-project.pro"
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    configurations {
+        javadocDeps
+    }
+
+    buildTypes {
+        debug {
+            testCoverageEnabled = true
+        }
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+        unitTests.includeAndroidResources = true
+        unitTests.all {
+            maxHeapSize = "1024m"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation project(path: ':libnavigation-core')
+//  implementation 'com.mapbox.mapboxsdk:mapbox-sdk-core:5.8.0-beta.3'
+    //ktlint
+    ktlint 'com.pinterest:ktlint:0.38.1'
+
+    // Navigation SDK
+    implementation project(':libnavigation-util')
+
+    // Mapbox
+    implementation 'com.mapbox.mapboxsdk:mapbox-sdk-services:5.8.0-beta.3'
+    implementation 'com.mapbox.mapboxsdk:mapbox-sdk-turf:5.8.0-beta.3'
+
+    // Mapbox Maps SDK
+    api 'com.mapbox.mapboxsdk:mapbox-android-sdk:9.6.0-beta.1'
+
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-plugin-annotation-v9:0.8.0'
+
+    // Support libraries
+    api 'com.google.android.material:material:1.1.0'
+    api 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    // Architecture libraries
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.2.0'
+
+    // AutoValues
+    annotationProcessor 'com.google.auto.value:auto-value:1.5.4'
+    compileOnly 'com.google.auto.value:auto-value:1.5.4'
+
+    // Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    // Timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    // Mapbox Map SDK Javadoc
+    javadocDeps 'com.mapbox.mapboxsdk:mapbox-android-sdk:9.6.0-beta.1'
+
+    // Network
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.10'
+
+    // Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.0'
+
+    // Unit testing
+//  testImplementation dependenciesList.junit
+//  testImplementation dependenciesList.mockito
+//  testImplementation dependenciesList.mockk
+//  testImplementation dependenciesList.robolectric
+//  testImplementation dependenciesList.json
+//  testImplementation dependenciesList.androidxTestCore
+//  testImplementation dependenciesList.mockwebserver
+//  testImplementation dependenciesList.coroutinesTestAndroid
+//  testImplementation project(':libtesting-utils')
+}
+
+//apply from: "${rootDir}/gradle/track-public-apis.gradle"
+//apply from: "${rootDir}/gradle/jacoco.gradle"
+//apply from: "${rootDir}/gradle/publish.gradle"

@@ -1,0 +1,67 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'org.jetbrains.dokka'
+apply plugin: 'com.jaredsburrows.license'
+apply from: "${rootDir}/gradle/ktlint.gradle"
+
+dokka {
+    outputDirectory = "$buildDir/kdoc"
+    configuration {
+        moduleName = 'libnavigation-router'
+        reportUndocumented = true
+
+        perPackageOption {
+            prefix = "com.mapbox.navigation.route.internal"
+            suppress = true
+        }
+    }
+}
+
+android {
+    compileSdkVersion 29
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 29
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'proguard-rules.pro', "${rootDir}/proguard/proguard-project.pro"
+    }
+}
+
+dependencies {
+    compileOnly 'com.mapbox.base:annotations:0.4.0'
+    kapt 'com.mapbox.base:annotations-processor:0.4.0'
+    implementation 'com.mapbox.base:common:0.4.0'
+
+    api project(':libnavigation-base')
+    implementation project(':libnavigator')
+    implementation project(":libnavigation-util")
+
+    implementation 'com.mapbox.mapboxsdk:mapbox-sdk-services:5.8.0-beta.3'
+
+    // Network
+    implementation('com.squareup.okhttp3:okhttp:3.12.10')
+    implementation('com.squareup.okhttp3:logging-interceptor:3.12.10')
+
+    //ktlint
+    ktlint 'com.pinterest:ktlint:0.38.1'
+
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.0'
+
+    // I/O
+    implementation 'com.squareup.okio:okio:2.4.3'
+
+//    testImplementation project(':libtesting-utils')
+//    apply from: "${rootDir}/gradle/unit-testing-dependencies.gradle"
+}
+
+//apply from: "${rootDir}/gradle/track-public-apis.gradle"
+//apply from: "${rootDir}/gradle/publish.gradle"
+//apply from: "${rootDir}/gradle/jacoco.gradle"
