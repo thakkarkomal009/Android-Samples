@@ -1,0 +1,6 @@
+<resources>
+    <!-- Notification Strings -->
+    <string name="mapbox_end_navigation">Slut navigation </string>
+    <string name="mapbox_eta_format">%s ETA</string>
+
+</resources>

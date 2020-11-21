@@ -1,0 +1,4 @@
+include ':libnavigation-core'
+include ':libnavigation-ui'
+include ':app',':libnavigation-ui',':libnavigation-core',':libnavigation-util',':libnavigator',':libtrip-notification',':libnavigation-router',':libnavigation-metrics',':libnavigation-base'
+rootProject.name = "MapboxCustomViewNavigation"

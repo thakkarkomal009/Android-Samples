@@ -1,0 +1,1 @@
+-keep class com.mapbox.navigation.metrics.internal.event.** { *; }

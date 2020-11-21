@@ -1,0 +1,5 @@
+<resources>
+    <!-- Notification Strings -->
+    <string name="mapbox_end_navigation">Закінчити навігацію</string>
+    <string name="mapbox_eta_format">До прибуття %s</string>
+</resources>

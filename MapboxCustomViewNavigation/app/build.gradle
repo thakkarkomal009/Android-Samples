@@ -1,0 +1,81 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+apply from: "${rootDir}/gradle/ktlint.gradle"
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.mapboxcustomviewnavigation"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    // Mapbox Navigation SDK
+    implementation project(':libnavigation-ui')
+    implementation 'com.mapbox.base:common:0.4.0'
+    implementation 'com.mapbox.common:logger:0.4.0'
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-plugin-annotation-v9:0.8.0'
+
+    // ktlint
+    ktlint 'com.pinterest:ktlint:0.38.1'
+
+    // Kotlin support
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.0'
+
+    //Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.0'
+
+    implementation dependenciesList.multidex
+
+    implementation 'com.mapbox.mapboxsdk:mapbox-sdk-directions-models:5.8.0-beta.3'
+    implementation 'com.mapbox.mapboxsdk:mapbox-sdk-services:5.8.0-beta.3'
+
+    // Timber
+    implementation dependenciesList.timber
+
+    // Network
+    implementation dependenciesList.okhttpInterceptor
+
+    implementation 'com.squareup.retrofit2:retrofit:2.7.2'
+
+    // Support libraries
+    implementation 'androidx.core:core:1.2.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.preference:preference-ktx:1.1.0'
+}
