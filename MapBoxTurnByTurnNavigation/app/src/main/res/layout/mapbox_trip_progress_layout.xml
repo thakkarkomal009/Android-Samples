@@ -1,0 +1,187 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/rlHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_grey">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:padding="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/dummy_profile_pic"
+                app:shapeAppearance="@style/ShapeAppearanceOverlay.Avatar" />
+
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/imgProfile"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/imgProfile"
+                android:padding="5dp"
+                android:textColor="@color/dark_grey"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="Chloe Brooklyn" />
+
+            <TextView
+                android:id="@+id/distanceRemainingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:paddingEnd="8dp"
+                android:textAlignment="textEnd"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="1056 ft" />
+
+            <TextView
+                android:id="@+id/estimatedTimeToArriveText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/distanceRemainingText"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="8dp"
+                android:paddingEnd="8dp"
+                android:textColor="@color/text_grey"
+                android:textSize="14sp"
+                tools:text="4:28 pm" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imgOrigin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlHeader"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_origin"
+            app:tint="@color/primary_color" />
+
+        <View
+            android:id="@+id/imgDottedLine"
+            android:layout_width="1dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/imgOrigin"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/dotted"
+            android:layerType="software" />
+
+        <ImageView
+            android:id="@+id/imgLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgDottedLine"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/ic_location"
+            app:tint="@color/marker_yellow" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlHeader"
+            android:layout_toRightOf="@+id/imgOrigin"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtPickupPoint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/imgProfile"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:textColor="@color/text_grey"
+                android:textSize="12sp"
+                tools:text="Pickup point" />
+
+            <TextView
+                android:id="@+id/txtOriginLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/imgProfile"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                tools:text="465 Huntington Ave, Boston, MA 02115, USA" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/text_grey" />
+
+            <TextView
+                android:id="@+id/txtPickOutPoint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/imgProfile"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:textColor="@color/text_grey"
+                android:textSize="12sp"
+                tools:text="Pickout point" />
+
+            <TextView
+                android:id="@+id/txtDestinationLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/imgLocation"
+                android:paddingLeft="5dp"
+                android:paddingBottom="2dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                tools:text="160 Norfolk Ave, Boston, MA 02119, USA" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/timeRemainingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlHeader"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:paddingEnd="8dp"
+            android:textSize="14sp"
+            tools:text="10 min" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/tripProgressDivider"
+        android:layout_width="24dp"
+        android:layout_height="1dp"
+        android:layout_marginBottom="32dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
